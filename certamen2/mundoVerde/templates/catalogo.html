@@ -2,46 +2,28 @@
 
 {% block content %}
 
-
 <div class="container">
-
     <h3 class="productos"> Nuestros productos: </h3>
-
     <div class="row g-12">
+        {% for producto in productos %}
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card mb-4">
-                <img class="card-img-top" src="/static/img/bolsa.jpg" alt="Bolsa de materiales reutilizables">
+                <img class="card-img-top" src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
                 <div class="card-body">
-                    <p class="card-text">Bolsa segunda vida</p>
+                    <p class="card-text">{{ producto.nombre }}</p>
+                    <p class="card-text">Precio: ${{ producto.precio|floatformat:0 }}</p>
+
+                    {% if user.is_authenticated %}
+                    <form action="{% url 'agregarAlCarrito' producto.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success">Agregar al carrito</button>
+                    </form>
+                    {% endif %}
+
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card mb-4">
-                <img class="card-img-top" src="/static/img/botella.jpg" alt="Botella de vidrio reutilizable">
-                <div class="card-body">
-                    <p class="card-text"> Botella reutilizable </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card mb-4">
-                <img class="card-img-top" src="/static/img/cepillo.jpg" alt="Cepillo de madera biodegradable">
-                <div class="card-body">
-                    <p class="card-text">Cepillos biodegradables</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row g-12"> 
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card mb-4">
-                <img class="card-img-top" src="/static/img/libro.jpg" alt="Libro con hojas de papel reciclado">
-                <div class="card-body">
-                    <p class="card-text"> Cuadernos reciclados </p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 

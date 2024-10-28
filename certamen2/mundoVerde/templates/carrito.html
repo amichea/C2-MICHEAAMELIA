@@ -1,0 +1,24 @@
+{% extends 'base!.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h3>Tu Carrito</h3>
+
+    {% for item in carrito_items %}
+        <p>{{ item.producto.nombre }} - Cantidad: {{ item.cantidad }} - Precio: ${{ item.producto.precio|floatformat:0 }}</p>
+    {% endfor %}
+
+    <p>Total a pagar: ${{ total|floatformat:0 }}</p>
+    
+    <form action="{% url 'realizarPedido' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Realizar Pedido</button>
+    </form>
+                   
+
+</div>
+
+
+{% endblock %}

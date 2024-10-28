@@ -2,7 +2,16 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h2>Registro de Usuario</h2>
+    <h3>Registro de Usuario</h3>
+    
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     <form method="post" action="{% url 'registro' %}">
         {% csrf_token %}
         {{ form.as_p }}
