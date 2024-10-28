@@ -1,0 +1,71 @@
+body{
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header{
+    background-color: #008000;
+    color: #FFF;
+    padding: 0.5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+#titulo{
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navegacion{
+    margin-left: 5%;
+    border-style: dashed;
+    border-right: 0cm;
+    border-left: 0cm;
+    color: #FFF;
+    text-decoration: none;
+
+
+}
+
+.navegacion:visited{
+    color: #FFF;
+}
+
+.navegacion:hover{
+
+    color: #e53d00;
+}
+
+.navegacion:active{
+    color: #5D3A00;
+}
+
+.quienes {
+    position: relative;
+    width: 100%;
+}
+
+.textoBosque {
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px; 
+    background-color: rgba(0,0,0, 0.75);
+    border-radius: 25px;
+}
+
+.productos{
+    padding-top: 50px;
+    padding-left: 0px;
+    padding-bottom: 15px;
+}
+
+.card-text{
+    font-size: 18px;
+}

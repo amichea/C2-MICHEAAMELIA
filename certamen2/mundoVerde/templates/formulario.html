@@ -1,0 +1,50 @@
+{% extends 'base!.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3>Formulario de Solicitud de Elementos Reciclables</h3>
+    <form id="recycling-form">
+        <div class="mb-3">
+            <label for="tipo-residuo" class="form-label">Tipo de Residuo</label>
+            <select id="tipo-residuo" class="form-select" required>
+                <option value="" disabled selected>Selecciona el tipo de residuo</option>
+                <option value="Plástico">Plástico</option>
+                <option value="Papel">Papel</option>
+                <option value="Vidrio">Vidrio</option>
+                <option value="Metales">Metales</option>
+                <option value="Electrónicos">Electrónicos</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="subcategoria" class="form-label">Subcategorías</label>
+            <select id="subcategoria" class="form-select" required>
+                <option value="" disabled selected>Selecciona una subcategoría</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" id="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="correo" class="form-label">Correo Electrónico</label>
+            <input type="email" id="correo" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección de Recolección</label>
+            <input type="text" id="direccion" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad de Residuos</label>
+            <input type="number" id="cantidad" class="form-control" required min="1">
+        </div>
+        <div class="mb-3">
+            <label for="comentarios" class="form-label">Comentarios Adicionales</label>
+            <textarea id="comentarios" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
+{% endblock %}
+
